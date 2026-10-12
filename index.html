@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buku Digital & Evaluasi Pancasila</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; margin: 0; padding: 20px; color: #333; }
+    .container { max-width: 800px; background: white; margin: 0 auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    h1, h2, h3 { color: #1e3a8a; }
+    h1 { text-align: center; margin-bottom: 5px; }
+    .subtitle { text-align: center; color: #64748b; margin-bottom: 30px; }
+    
+    /* Bagian Buku Digital / Materi */
+    .materi-box { background: #f8fafc; border-left: 5px solid #3b82f6; padding: 20px; margin-bottom: 25px; border-radius: 6px; line-height: 1.7; }
+    .tujuan-list { background: #eff6ff; padding: 15px 20px; border-radius: 8px; margin-bottom: 25px; }
+    .tujuan-list li { margin-bottom: 8px; }
+
+    /* Form Identitas & Soal */
+    .form-group { margin-bottom: 15px; }
+    label { font-weight: 600; display: block; margin-bottom: 6px; }
+    input[type="text"] { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; }
+    
+    .soal-card { background: #fff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+    .soal-card p { font-weight: 600; margin-top: 0; color: #1e293b; }
+    textarea { width: 100%; height: 80px; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
+
+    button { background: #2563eb; color: white; border: none; padding: 14px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; transition: background 0.2s; }
+    button:hover { background: #1d4ed8; }
+    button:disabled { background: #94a3b8; cursor: not-allowed; }
+    
+    #hasilContainer { display: none; text-align: center; padding: 20px; background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 8px; margin-top: 20px; }
+    #hasilContainer h2 { color: #166534; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Buku Digital Pancasila & Kebinekaan</h1>
+  <p class="subtitle">Modul Pembelajaran Interaktif & Evaluasi Nalar Kritis</p>
+
+  <!-- TUJUAN PEMBELAJARAN -->
+  <div class="tujuan-list">
+    <h3>🎯 Tujuan Pembelajaran:</h3>
+    <ul>
+      <li>Peserta didik dapat mensyukuri identitas diri dan budaya di lingkungannya sebagai anugerah dari Tuhan Yang Maha Esa.</li>
+      <li>Peserta didik dapat menghargai keberagaman yang ada di lingkungannya sebagai bentuk sikap menghargai tantangan dan keuntungan hidup kebinekaan.</li>
+      <li>Peserta didik dapat menguraikan keuntungan dan tantangan hidup dalam keberagaman.</li>
+      <li>Peserta didik dapat menceritakan sikap dan perilaku yang dapat menjaga atau merusak kebinekaan di lingkungannya.</li>
+    </ul>
+  </div>
+
+  <!-- MATERI BACAAN -->
+  <div class="materi-box">
+    <h2>📖 Materi Bacaan: Merawat Kebinekaan dalam Bingkai Pancasila</h2>
+    <p>Indonesia adalah negara yang sangat kaya akan keberagaman—mulai dari suku, agama, ras, bahasa daerah, hingga adat istiadat. Keberagaman ini bukanlah jurang pemisah, melainkan anugerah luar biasa dari Tuhan Yang Maha Esa yang patut kita syukuri.</p>
+    <p><b>1. Syukur atas Identitas dan Budaya:</b> Setiap individu terlahir dengan identitas dan latar belakang budaya yang unik. Mengenal, menerima, dan bangga terhadap identitas diri tanpa merendahkan budaya orang lain adalah wujud nyata rasa syukur kepada Sang Pencipta.</p>
+    <p><b>2. Keuntungan dan Tantangan Kebinekaan:</b> Hidup di tengah masyarakat yang beragam memberikan banyak <i>keuntungan</i>, seperti kaya akan warisan seni, memperluas wawasan sosial, serta melatih kerja sama tim yang kuat. Namun, ada pula <i>tantangan</i> yang harus dihadapi, seperti potensi kesalahpahaman budaya, egoisme kelompok (etnosentrisme), atau mudahnya terprovokasi oleh berita bohong yang memecah belah.</p>
+    <p><b>3. Menjaga vs Merusak Kebinekaan:</b> Perilaku terpuji seperti sikap toleransi, gotong royong, saling mendengarkan, dan menghormati pendapat orang lain adalah kunci utama untuk menjaga keharmonisan. Sebaliknya, sikap intoleran, mengejek tradisi suku lain, memaksakan kehendak, dan diskriminasi adalah perilaku merusak kebinekaan yang harus dihindari.</p>
+  </div>
+
+  <!-- FORMULIR EVALUASI -->
+  <form id="evaluasiForm">
+    <h2>📝 Uji Pemahaman & Nalar Kritis (10 Soal Uraian)</h2>
+    <p style="color: #64748b; font-size: 14px; margin-bottom: 25px;">Jawablah pertanyaan di bawah ini dengan uraian yang jelas dan mendalam berdasarkan nalar kritis Anda.</p>
+
+    <div class="form-group">
+      <label for="namaSiswa">Nama Lengkap Siswa:</label>
+      <input type="text" id="namaSiswa" placeholder="Masukkan nama lengkap..." required>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 30px;">
+      <label for="kelas">Kelas:</label>
+      <input type="text" id="kelas" placeholder="Contoh: 5A / VI" required>
+    </div>
+
+    <!-- SOAL 1 - 10 -->
+    <div class="soal-card">
+      <p>1. Bagaimana cara konkret Anda mensyukuri identitas diri dan keberagaman budaya di lingkungan sekitar sebagai anugerah Tuhan?</p>
+      <textarea id="jawaban1" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>2. Mengapa keberagaman suku dan budaya di Indonesia harus dipandang sebagai sebuah keuntungan hidup dan bukan ancaman?</p>
+      <textarea id="jawaban2" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>3. Uraikan apa saja tantangan nyata yang sering muncul dalam kehidupan sehari-hari akibat adanya perbedaan budaya di sekolah atau masyarakat.</p>
+      <textarea id="jawaban3" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>4. Berikan contoh sikap dan perilaku nyata yang mencerminkan upaya menjaga keutuhan kebinekaan di lingkungan tempat tinggal Anda.</p>
+      <textarea id="jawaban4" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>5. Sebutkan tindakan atau perilaku yang dapat merusak kebinekaan serta jelaskan dampak buruk yang ditimbulkannya bagi persatuan bangsa.</p>
+      <textarea id="jawaban5" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>6. Bagaimana nilai-nilai Pancasila dapat dijadikan sebagai panduan atau solusi dalam mengatasi konflik antarbudaya atau antargolongan?</p>
+      <textarea id="jawaban6" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>7. Mengapa sikap toleransi dan saling menghargai sangat krusial dalam menghadapi tantangan era globalisasi dan pertukaran informasi saat ini?</p>
+      <textarea id="jawaban7" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>8. Ceritakan pengalaman atau pengamatan Anda mengenai suatu peristiwa gotong royong yang melibatkan orang-orang dari latar belakang berbeda.</p>
+      <textarea id="jawaban8" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>9. Menurut analisis kritis Anda, apa bahaya dari sikap etnosentrisme (menganggap budaya sendiri lebih baik dari budaya lain) terhadap kebhinekaan?</p>
+      <textarea id="jawaban9" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <div class="soal-card">
+      <p>10. Apa komitmen pribadi yang dapat Anda terapkan mulai hari ini untuk menjadi bagian dari generasi yang merawat persatuan di tengah keberagaman?</p>
+      <textarea id="jawaban10" placeholder="Tuliskan jawaban analitis Anda..." required></textarea>
+    </div>
+
+    <button type="submit" id="btnSubmit">KIRIM JAWABAN & EVALUASI</button>
+  </form>
+
+  <div id="hasilContainer">
+    <h2>Evaluasi Berhasil Dikirim! 🎉</h2>
+    <p id="pesanNilai" style="font-size: 18px; font-weight: bold; margin: 10px 0;"></p>
+    <p style="color: #64748b;">Data nilai dan rincian jawaban Anda telah tercatat otomatis di Google Sheets guru.</p>
+  </div>
+</div>
+
+<script>
+  // KUNCI KATA KUNCI PENILAIAN OTOMATIS
+  const kunciKataKunci = {
+    1: ["syukur", "tuhan", "identitas", "budaya", "bangga", "anugerah"],
+    2: ["keuntungan", "kaya", "belajar", "kerja sama", "wawasan", "pasti"],
+    3: ["tantangan", "konflik", "kesalahpahaman", "egois", "perbedaan"],
+    4: ["menjaga", "toleransi", "gotong royong", "menghargai", "rukun"],
+    5: ["merusak", "intoleran", "ejek", "diskriminasi", "pecah"],
+    6: ["pancasila", "solusi", "sila", "persatuan", "musyawarah"],
+    7: ["globalisasi", "informasi", "saring", "bijak", "dunia"],
+    8: ["gotong royong", "bantu", "bersama", "warga", "kegiatan"],
+    9: ["etnosentrisme", "merendahkan", "jelek", "pecah", "bahaya"],
+    10: ["komitmen", "janji", "jaga", "persatuan", "generasi"]
+  };
+
+  // URL Web App Apps Script yang terhubung ke Spreadsheet Ibu
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxO4ahYqxfR5mX9ZMUrPpyZmjEYaW3AEI7MRkScvh38mJ2hHolL2bUSZ5HyNVYL2Q3b/exec";
+
+  document.getElementById('evaluasiForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const btn = document.getElementById('btnSubmit');
+    btn.disabled = true;
+    btn.innerText = "Menilai dan Mengirim Data...";
+
+    let totalNilai = 0;
+    let detailJawaban = {};
+
+    // Proses koreksi otomatis (0, 5, atau 10 poin per soal)
+    for (let i = 1; i <= 10; i++) {
+      let teksSiswa = document.getElementById('jawaban' + i).value.toLowerCase();
+      let keywords = kunciKataKunci[i];
+      let matchedCount = keywords.filter(kw => teksSiswa.includes(kw)).length;
+      
+      let poin = 0;
+      if (matchedCount >= 2) {
+        poin = 10;
+      } else if (matchedCount === 1) {
+        poin = 5;
+      } else {
+        poin = 0;
+      }
+
+      totalNilai += poin;
+      detailJawaban["Soal " + i] = { jawaban: document.getElementById('jawaban' + i).value, poin: poin };
+    }
+
+    const payload = {
+      namaSiswa: document.getElementById('namaSiswa').value,
+      kelas: document.getElementById('kelas').value,
+      nilaiAkhir: totalNilai,
+      detailJawaban: detailJawaban
+    };
+
+    fetch(scriptURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.result === "success") {
+        document.getElementById('evaluasiForm').style.display = "none";
+        document.getElementById('hasilContainer').style.display = "block";
+        document.getElementById('pesanNilai').innerText = `Nilai Akhir Anda: ${totalNilai} / 100`;
+      } else {
+        throw new Error(data.error);
+      }
+    })
+    .catch(err => {
+      alert("Gagal mengirim data: " + err.message);
+      btn.disabled = false;
+      btn.innerText = "KIRIM JAWABAN & EVALUASI";
+    });
+  });
+</script>
+
+</body>
+</html>
